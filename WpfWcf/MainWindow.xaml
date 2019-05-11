@@ -5,10 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfWcf"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Closed="Window_Closed"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Button Click="Button_Click" Content="启动服务"/>
-       
+        <ComboBox Grid.Row="1" x:Name="Com" Width="200" Height="40" VerticalAlignment="Top" Margin="20" Style="{DynamicResource ComboBoxStyleCom}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF1FE030">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FF71A21B" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
     </Grid>
 </Window>
