@@ -7,14 +7,27 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Closed="Window_Closed"
-        Title="MainWindow" Height="450" Width="800">
+        Title="绿荫服务程序" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Click="Button_Click" Content="启动服务" Width="200" Height="40" x:Name="BeginBtn"/>
-        <ComboBox Grid.Row="1" x:Name="Com" Width="200" Height="40" VerticalAlignment="Top" Margin="20" Style="{DynamicResource ComboBoxStyleCom}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF1FE030">
+        <Button Click="Button_Click" 
+                Content="启动服务" 
+                Width="200" 
+                Height="40" 
+                x:Name="BeginBtn"/>
+        <ComboBox Grid.Row="1" 
+                  x:Name="Com" 
+                  Width="200" 
+                  Height="40" 
+                  VerticalAlignment="Top"
+                  Margin="20" 
+                  Style="{DynamicResource ComboBoxStyleCom}"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center" 
+                  BorderBrush="#FF1FE030">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -22,5 +35,19 @@
                 </LinearGradientBrush>
             </ComboBox.Background>
         </ComboBox>
+        <Button Content="连接二维码"
+                HorizontalAlignment="Left"
+                Width="200"
+                Click="QrcodeBtn_Click"
+                Height="40"            
+                x:Name="QrcodeBtn"/>
+        <StackPanel
+            HorizontalAlignment="Left"
+            Grid.Row="1"
+            Orientation="Vertical">
+            <Image x:Name="QrCodeImg" Width="200" Height="200"            
+               VerticalAlignment="Bottom"/>
+            <TextBlock x:Name="IpUrl" FontSize="24"/>
+        </StackPanel>
     </Grid>
 </Window>
