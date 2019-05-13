@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfWcf
+namespace GreenShade.Wpf.WcfService
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
@@ -40,8 +40,8 @@ namespace WpfWcf
                 try
                 {
                     string baseAddress = "http://" + Environment.MachineName + ":8000/Service";
-                    host = new ServiceHost(typeof(WpfWcf.Control), new Uri(baseAddress));
-                    host.AddServiceEndpoint(typeof(WpfWcf.IControl), new WebHttpBinding(), "").Behaviors.Add(new WebHttpBehavior());
+                    host = new ServiceHost(typeof(GreenShade.Wpf.WcfService.Control), new Uri(baseAddress));
+                    host.AddServiceEndpoint(typeof(GreenShade.Wpf.WcfService.IControl), new WebHttpBinding(), "").Behaviors.Add(new WebHttpBehavior());
                     host.Open();
                     myPort = new SerialPort();
                     myPort.BaudRate = 9600;
