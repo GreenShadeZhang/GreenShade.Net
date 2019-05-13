@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenerateRandomNumbers", "GenerateRandomNumbers\GenerateRandomNumbers.csproj", "{9027728B-91FF-4008-879F-AB181428EEFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenShade.Wpf.WcfService", "WpfWcf\GreenShade.Wpf.WcfService.csproj", "{F459EBBC-9AB1-4D27-8CAA-C7FE408FFD1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenShade.Wpf.WcfService", "GreenShade.Wpf.WcfService\GreenShade.Wpf.WcfService.csproj", "{F459EBBC-9AB1-4D27-8CAA-C7FE408FFD1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
