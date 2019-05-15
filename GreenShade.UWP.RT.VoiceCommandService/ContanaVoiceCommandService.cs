@@ -30,20 +30,20 @@ namespace GreenShade.UWP.RT.VoiceCommandService
                         case "dosomething":
 
                             var userMessage = new VoiceCommandUserMessage();
-                            var destinationsContentTiles = new List<VoiceCommandContentTile>();
-                            var destinationTile = new VoiceCommandContentTile();
+                            //var destinationsContentTiles = new List<VoiceCommandContentTile>();
+                            //var destinationTile = new VoiceCommandContentTile();
 
-                            // To handle UI scaling, Cortana automatically looks up files with FileName.scale-<n>.ext formats based on the requested filename.
-                            // See the VoiceCommandService\Images folder for an example.
-                            destinationTile.ContentTileType = VoiceCommandContentTileType.TitleWith68x68IconAndText;
+                            //// To handle UI scaling, Cortana automatically looks up files with FileName.scale-<n>.ext formats based on the requested filename.
+                            //// See the VoiceCommandService\Images folder for an example.
+                            //destinationTile.ContentTileType = VoiceCommandContentTileType.TitleWith68x68IconAndText;
 
 
-                            destinationTile.AppLaunchArgument = "牛逼";
-                            destinationTile.Title = "傻瓜";
+                            //destinationTile.AppLaunchArgument = "牛逼";
+                            //destinationTile.Title = "傻瓜";
                             userMessage.DisplayMessage = "牛逼";
-                            userMessage.SpokenMessage = "牛逼了你";
-                            destinationsContentTiles.Add(destinationTile);
-                            var response = VoiceCommandResponse.CreateResponse(userMessage, destinationsContentTiles);
+                            userMessage.SpokenMessage = "牛逼了你 我就不开灯";
+                           // destinationsContentTiles.Add(destinationTile);
+                            var response = VoiceCommandResponse.CreateResponse(userMessage);
                             await voiceServiceConnection.ReportSuccessAsync(response);
                             break;
                     }
