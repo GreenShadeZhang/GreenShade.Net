@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="30af4d9c-ad63-478b-ac3b-f63acd01de4c"
+    Publisher="CN=Gil_Z"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="30af4d9c-ad63-478b-ac3b-f63acd01de4c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>GreenShade.UWP.CortanaController</DisplayName>
+    <PublisherDisplayName>Gil_Z</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="GreenShade.UWP.CortanaController.App">
+      <uap:VisualElements
+        DisplayName="GreenShade.UWP.CortanaController"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="GreenShade.UWP.CortanaController"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.personalAssistantLaunch"/>
+        <uap:Extension Category="windows.appService" EntryPoint="GreenShade.UWP.RT.VoiceCommandService.ContanaVoiceCommandService">
+          <uap:AppService Name="ContanaVoiceCommandService"/>
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
