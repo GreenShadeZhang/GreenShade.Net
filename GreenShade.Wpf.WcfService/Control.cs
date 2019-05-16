@@ -23,11 +23,11 @@ namespace GreenShade.Wpf.WcfService
             //    myPort.NewLine = "\r\n";
             //    myPort.Open();
             //}
-            string res=  MainWindow.Instance.myPort.ReadLine();
+             MainWindow.Instance.myPort.Write(filename);
              //= myPort.ReadLine();
            // myPort.Close();
             //myPort.DataReceived += MyPort_DataReceived;
-            return res;
+            return filename;
         }
       
     }
