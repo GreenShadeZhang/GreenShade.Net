@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -12,7 +13,10 @@ namespace GreenShade.Wpf.WcfService
     [ServiceContract]
     public interface IControl
     {
-        [OperationContract,WebGet(UriTemplate = "Files?aid={filename}", ResponseFormat = WebMessageFormat.Json)]
-        string DoWork(string filename);
+        [OperationContract,WebInvoke(Method ="GET",UriTemplate = "controller?btn_id={id}", ResponseFormat = WebMessageFormat.Json)]
+        string DoWork(string id);
+
+        [OperationContract, WebGet(UriTemplate = "page?name={filename}", ResponseFormat = WebMessageFormat.Json)]
+        Stream ControlPage(string filename);
     }
 }

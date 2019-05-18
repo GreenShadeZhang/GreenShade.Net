@@ -1,0 +1,128 @@
+
+.h5Body {
+    width: 100vw;
+    height: 100vh;
+    background: url("page?name=background.png") no-repeat center center;
+}
+
+.title-area{
+  padding-top: 40px;
+  text-align: center;
+  img{
+    width: 82vw;
+  }
+  //margin-bottom: 164px;
+}
+.location-wrap{
+  margin-top: 20px;
+  text-align: center;
+  .simple-button{
+    padding: 0;
+    display: inline-block;
+    background-image: linear-gradient(90deg,
+            #29edff 0%,
+            #4cd7ff 100%),
+    linear-gradient(
+                    #1fa8f6,
+                    #1fa8f6);
+    width: 186px;
+    height: 42px;
+    border-radius: 42px;
+    text-align: center;
+    line-height: 42px;
+    font-size: 26px;
+    color: #004981;
+    letter-spacing: 1px;
+
+  }
+}
+
+
+.start-btn-wrap{
+  box-sizing: border-box;
+  width: 255px;
+  height: 229px;
+  background-size: contain;
+  margin: 0 auto;
+  margin-top: 0px;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: space-around;
+  //align-items: center;
+  .show-index-wrap{
+    padding-top: 20px;
+    .tip_txt{
+      padding-left: 20px;
+      color: #fff;
+      padding-bottom: 10px;
+      text-align: center;
+    }
+  }
+  .location-wrap{
+    .simple-button{
+
+    }
+  }
+}
+
+.totalPeople{
+  text-align: center;
+  margin-top: 40px;
+  a{
+    color: #fff;
+  }
+}
+
+.location-wrap{
+  //position: absolute;
+  //left: 50%;
+  //top: 50%;
+  //transform: translate(-50%, -50%);
+  .simple-button{
+    margin: 0 auto;
+  }
+}
+.select-info-wrap{
+  display: flex;
+  justify-content: space-around;
+  .right-wrap{
+  }
+}
+
+.show-index-wrap{
+  #mainIndex{
+    text-align: center;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    //margin-top: 100px;
+    .txt-sty{
+      width: 44px;
+      height: 50px;
+      display: inline-block;
+      text-align: center;
+      line-height: 58px ;
+      border-radius: 6px;
+      //border: solid 2px #7be5ff;
+      font-size: 30px;
+      color: #bbf0f4;
+    }
+    .fillNumber{
+      color: #000;
+      margin-right: 20px;
+    }
+  }
+}
+
+
+.am-selected{
+  .am-selected-btn{
+    height: 33px;
+    width: 160px;
+    border-radius: 33px;
+    border: solid 2px #ffffff;
+    color: #fff;
+  }
+
+}

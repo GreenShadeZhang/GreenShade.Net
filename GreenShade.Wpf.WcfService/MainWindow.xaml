@@ -41,13 +41,5 @@
                 Click="QrcodeBtn_Click"
                 Height="40"            
                 x:Name="QrcodeBtn"/>
-        <StackPanel
-            HorizontalAlignment="Left"
-            Grid.Row="1"
-            Orientation="Vertical">
-            <Image x:Name="QrCodeImg" Width="200" Height="200"            
-               VerticalAlignment="Bottom"/>
-            <TextBlock x:Name="IpUrl" FontSize="24"/>
-        </StackPanel>
     </Grid>
 </Window>
