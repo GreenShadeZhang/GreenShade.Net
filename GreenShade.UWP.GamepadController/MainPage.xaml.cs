@@ -10,6 +10,8 @@ using Windows.Foundation;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Shapes;
 using Windows.UI.Xaml.Navigation;
+using Windows.Web.Http;
+using System.Collections.Generic;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
@@ -21,8 +23,11 @@ namespace GreenShade.UWP.GamepadController
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        HttpClient httpClient = new HttpClient();
+        string url = "http://localhost:8000/Service/controller?btn_id={0}";
         Gamepad controller;
         DispatcherTimer dispatcherTimer;
+        List<string> key = new List<string>();
         TimeSpan period = TimeSpan.FromMilliseconds(100);
         public MainPage()
         {
@@ -37,7 +42,7 @@ namespace GreenShade.UWP.GamepadController
             Gamepad.GamepadRemoved += Gamepad_GamepadRemoved;
             //public event TypedEventHandler<IGameController, Headset> HeadsetConnected
         }
-   
+
         #region EventHandlers
 
         private async void Gamepad_GamepadAdded(object sender, Gamepad e)
@@ -70,7 +75,7 @@ namespace GreenShade.UWP.GamepadController
         #endregion
 
 
-        private void dispatcherTimer_Tick(object sender, object e)
+        private async void dispatcherTimer_Tick(object sender, object e)
         {
             if (Gamepad.Gamepads.Count > 0)
             {
@@ -82,12 +87,16 @@ namespace GreenShade.UWP.GamepadController
 
                 pbRightThumbstickX.Value = reading.RightThumbstickX;
                 pbRightThumbstickY.Value = reading.RightThumbstickY;
-
-                pbRightThumbstickY.Value = reading.RightThumbstickY;
+                LeftX.Text = reading.LeftThumbstickX.ToString();
+                LeftY.Text= reading.LeftThumbstickY.ToString();
+                RightX.Text = reading.RightThumbstickX.ToString();
+                RightY.Text = reading.RightThumbstickY.ToString();
+                // pbRightThumbstickY.Value = reading.RightThumbstickY;
 
                 pbLeftTrigger.Value = reading.LeftTrigger;
                 pbRightTrigger.Value = reading.RightTrigger;
-
+                pbLeft.Text = reading.LeftTrigger.ToString();
+                pbRight.Text = reading.RightTrigger.ToString();
                 //https://msdn.microsoft.com/en-us/library/windows/apps/windows.gaming.input.gamepadbuttons.aspx
                 ChangeVisibility(reading.Buttons.HasFlag(GamepadButtons.A), lblA);
                 ChangeVisibility(reading.Buttons.HasFlag(GamepadButtons.B), lblB);
@@ -103,6 +112,60 @@ namespace GreenShade.UWP.GamepadController
                 ChangeVisibility(reading.Buttons.HasFlag(GamepadButtons.LeftThumbstick), ellLeftThumbstick);
                 ChangeVisibility(reading.Buttons.HasFlag(GamepadButtons.LeftShoulder), rectLeftShoulder);
                 ChangeVisibility(reading.Buttons.HasFlag(GamepadButtons.RightShoulder), recRightShoulder);
+
+                if (reading.RightTrigger==1&& reading.LeftThumbstickY == 1)
+                {
+                    string reqUrl = string.Format(url, "up");
+                    if(!key.Contains(reqUrl))
+                    {
+                        key.Clear();
+                        key.Add(reqUrl);
+                        await httpClient.GetStringAsync(new Uri(reqUrl));
+                    }                       
+                }
+                else if (reading.RightTrigger == 1 && reading.LeftThumbstickY == -1)
+                {
+                    string reqUrl = string.Format(url, "down");
+                    if (!key.Contains(reqUrl))
+                    {
+                        key.Clear();
+                        key.Add(reqUrl);
+                        await httpClient.GetStringAsync(new Uri(reqUrl));
+                    }
+                }
+                else if (reading.RightTrigger == 1&& reading.LeftThumbstickX==-1)
+                {
+                    string reqUrl = string.Format(url, "right");
+                    if (!key.Contains(reqUrl))
+                    {
+                        key.Clear();
+                        key.Add(reqUrl);
+                        await httpClient.GetStringAsync(new Uri(reqUrl));
+                    };
+                }
+                else if (reading.RightTrigger == 1 && reading.LeftThumbstickX == 1)
+                {
+                    string reqUrl = string.Format(url, "left");
+                    if (!key.Contains(reqUrl))
+                    {
+                        key.Clear();
+                        key.Add(reqUrl);
+                        await httpClient.GetStringAsync(new Uri(reqUrl));
+                    }
+                }
+               
+                else 
+                {
+                    string reqUrl = string.Format(url, "stop");
+                    if (!key.Contains(reqUrl))
+                    {
+                        key.Clear();
+                        key.Add(reqUrl);
+                        await httpClient.GetStringAsync(new Uri(reqUrl));
+                    }
+                }
+              
+
 
             }
 

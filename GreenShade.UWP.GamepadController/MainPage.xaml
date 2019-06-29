@@ -10,6 +10,14 @@
     Background="Beige">
 
     <Grid>
+        <StackPanel>
+            <TextBlock Text="ceshi" x:Name="LeftX"/>
+            <TextBlock Text="ceshi" x:Name="LeftY"/>
+            <TextBlock Text="ceshi" x:Name="RightX"/>
+            <TextBlock Text="ceshi" x:Name="RightY"/>
+            <TextBlock Text="ceshi" x:Name="pbLeft"/>
+            <TextBlock Text="ceshi" x:Name="pbRight"/>
+        </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Canvas Width="600" Height="400">
                 <Image Source="Assets/xbox-one-controller.png" Width="400" Height="400"/>
